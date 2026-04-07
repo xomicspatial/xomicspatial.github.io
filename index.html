@@ -2,83 +2,227 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>付笑男 研究员 - 首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>付笑男 研究员 - X-Spatial Lab</title>
     <style>
+        :root {
+            --primary-color: #004080; /* 学术深蓝 */
+            --accent-color: #eef4fb;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #fcfcfc;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: "Microsoft YaHei", "SimSun", sans-serif;
-            line-height: 1.8;
-            color: #333;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background-color: #fafafa;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Microsoft YaHei", serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
-        h1 {
-            font-size: 26px;
-            color: #222;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
+
+        /* 页眉与容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
+
+        header {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-style: italic;
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+
+        /* 导航栏 */
         .nav {
-            margin-bottom: 30px;
-            padding: 10px 15px;
-            background: #f5f5f5;
-            border-radius: 6px;
+            display: flex;
+            background: #fff;
+            padding: 0;
+            margin-bottom: 40px;
+            border-top: 2px solid var(--primary-color);
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
+
         .nav a {
-            margin-right: 20px;
-            color: #0057ad;
+            padding: 15px 25px;
+            color: #444;
             text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.95rem;
         }
+
         .nav a:hover {
-            text-decoration: underline;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
         }
-        .section {
-            margin-bottom: 30px;
+
+        .nav a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
         }
+
+        /* 主体内容排版 */
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* 左右比例 */
+            gap: 50px;
+        }
+
+        @media (max-width: 850px) {
+            .main-wrapper { grid-template-columns: 1fr; }
+            .sidebar { order: -1; }
+        }
+
+        .content-section {
+            margin-bottom: 45px;
+        }
+
         h2 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 12px;
-            border-left: 4px solid #0057ad;
-            padding-left: 10px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
         }
+
+        h2::before {
+            content: "";
+            width: 8px;
+            height: 24px;
+            background: var(--primary-color);
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+
         p {
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        em {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+        }
+
+        .sidebar-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+
+        .sidebar-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .sidebar-info p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>付笑男 研究员</h1>
+    <div class="container">
+        <header>
+            <h1>Xiaonan (Frank) Fu, Ph.D.</h1>
+            <p>X-Spatial for infectious disease and immune regulation</p>
+        </header>
 
-    <!-- 统一导航栏 -->
-    <div class="nav">
-        <a href="index.html">首页</a>
-        <a href="research.html">研究方向</a>
-        <a href="achievements.html">科研成果</a>
-        <a href="team.html">团队成员</a>
-        <a href="contact.html">联系我们</a>
-    </div>
+        <nav class="nav">
+            <a href="index.html" class="active">首页</a>
+            <a href="research.html">研究方向</a>
+            <a href="achievements.html">科研成果</a>
+            <a href="team.html">团队成员</a>
+            <a href="contact.html">联系我们</a>
+        </nav>
 
-    <!-- 个人简介 -->
-    <div class="section">
-        <h2>个人简介</h2>
-        <p>付笑男，博士，研究员，博士生导师。2018年博士毕业于弗吉尼亚理工大学，2018年至2024年在华盛顿大学生化系从事博士后研究，2024年至2025年任华盛顿大学讲师，2025年6月至今任中国科学院动物研究所研究员。</p>
-        <p>主要从事基于微米级生物芯片的空间组学技术开发，探索充分利用亚细胞级空间位置信息，在复杂的生物系统中研究空间细胞异质性与功能调控、细胞互作。</p>
-        <p>研究成果发表于 <em>Cell</em>、<em>Nature</em>、<em>Nature Aging</em>、<em>PNAS</em>、<em>PLOS Pathogens</em> 等国际知名期刊。</p>
-    </div>
+        <div class="main-wrapper">
+            <div class="main-content">
+                <section class="content-section">
+                    <h2>研究组简介</h2>
+                    <p><strong>付笑男</strong>，博士，研究员，博士生导师。2018年博士毕业于弗吉尼亚理工大学，2018年至2024年在华盛顿大学生化系从事博士后研究，2024年至2025年任华盛顿大学讲师，2025年6月起全职回国工作，现任<strong>中国科学院动物研究所研究员</strong>。</p>
+                    <p>我们的研究重点在于基于微米级生物芯片的<strong>空间组学技术</strong>（Spatial Omic Technologies）开发。通过充分利用亚细胞级空间位置信息，我们旨在复杂生物系统中探索细胞异质性、功能调控以及细胞间的相互作用，为理解生命过程提供更高维度的视角。</p>
+                    <p>近年来，相关研究成果已发表在 <em>Cell</em>、<em>Nature</em>、<em>Nature Aging</em>、<em>PNAS</em>、<em>PLOS Pathogens</em> 等国际学术期刊。</p>
+                </section>
 
-    <div class="section">
-        <h2>实验室简介</h2>
-        <p>本课题组隶属于中国科学院动物研究所、动物多样性保护与有害动物防控全国重点实验室，主要研究方向为空间组学技术开发、疫源动物生物学、抗体表位解析与免疫调控机制，致力于发展前沿生物技术并应用于重要科学问题。</p>
+                <section class="content-section">
+                    <h2>实验室使命</h2>
+                    <p>本课题组隶属于<strong>中国科学院动物研究所、动物多样性保护与有害动物防控全国重点实验室</strong>。</p>
+                    <p>实验室致力于将最前沿的生物技术应用于重要科学问题的解决。目前主要研究方向涵盖：空间组学技术开发、疫源动物生物学、抗体表位解析以及免疫调控机制研究。</p>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <img src="profile.png" alt="付笑男 博士" class="profile-img" onerror="this.src='https://via.placeholder.com/250x300?text=Photo+of+Dr.+Fu'">
+                
+                <div class="sidebar-info">
+                    <h3>联系信息</h3>
+                    <p><strong>职位：</strong>研究员 / PI</p>
+                    <p><strong>机构：</strong>中科院动物研究所</p>
+                    <p><strong>地址：</strong>北京市朝阳区北辰西路1号院5号</p>
+                    <p><strong>邮箱：</strong>xnfu at 163.com</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            &copy; 2026 Xiaonan Fu Lab @ IOZ, CAS. All Rights Reserved.
+        </footer>
     </div>
 
 </body>
