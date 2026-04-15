@@ -84,16 +84,42 @@
             border-bottom: 3px solid var(--primary-color);
         }
 
+        /* 轮播图样式 */
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: #f0f0f0;
+            height: 400px; /* 调整高度以适应您的科研展示图 */
+            position: relative;
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 400%; /* 4张图，每张占 1/4 */
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 25%; /* 对应 100% / 4 */
+            height: 100%;
+            object-fit: cover; /* 确保图片铺满容器而不变形 */
+        }
+
         /* 主体内容排版 */
         .main-wrapper {
             display: grid;
-            grid-template-columns: 3fr 1fr; /* 左右比例 */
+            grid-template-columns: 3fr 1fr;
             gap: 50px;
         }
 
         @media (max-width: 850px) {
             .main-wrapper { grid-template-columns: 1fr; }
             .sidebar { order: -1; }
+            .carousel-container { height: 250px; }
         }
 
         .content-section {
@@ -123,11 +149,6 @@
             margin-bottom: 18px;
             text-align: justify;
             font-size: 1.05rem;
-        }
-
-        em {
-            color: var(--primary-color);
-            font-weight: 600;
         }
 
         /* 侧边栏样式 */
@@ -193,6 +214,16 @@
 
         <div class="main-wrapper">
             <div class="main-content">
+                
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="images/slide1.jpg" alt="Lab Activity 1" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+1'">
+                        <img src="images/slide2.jpg" alt="Research Data" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+2'">
+                        <img src="images/slide3.jpg" alt="Microscopy" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+3'">
+                        <img src="images/slide4.jpg" alt="Lab Team" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+4'">
+                    </div>
+                </div>
+
                 <section class="content-section">
                     <h2>研究组简介</h2>
                     <p><strong>付笑男</strong>，博士，研究员，博士生导师。2018年博士毕业于弗吉尼亚理工大学，2018年至2024年在华盛顿大学生化系从事博士后研究，2024年至2025年任华盛顿大学讲师，2025年6月起全职回国工作，现任<strong>中国科学院动物研究所研究员</strong>。</p>
@@ -224,6 +255,26 @@
             &copy; 2026 Xiaonan Fu Lab @ IOZ, CAS. All Rights Reserved.
         </footer>
     </div>
+
+    <script>
+        const slide = document.querySelector('.carousel-slide');
+        const images = document.querySelectorAll('.carousel-slide img');
+        let counter = 0;
+        const totalImages = images.length;
+
+        function moveSlide() {
+            counter++;
+            if (counter >= totalImages) {
+                counter = 0;
+            }
+            // 每张图占容器宽度的 100%，对应父级 flex 容器位移 -25% (因为 100/4)
+            const offset = -counter * (100 / totalImages);
+            slide.style.transform = `translateX(${offset}%)`;
+        }
+
+        // 每 4 秒切换一次
+        setInterval(moveSlide, 4000);
+    </script>
 
 </body>
 </html>
