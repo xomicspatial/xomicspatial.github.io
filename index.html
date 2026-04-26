@@ -26,16 +26,48 @@
             background-color: var(--bg-color);
         }
 
+        /* 语言切换按钮 */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .lang-btn {
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .lang-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* 语言显示控制 */
+        [lang="en"] .lang-zh { display: none; }
+        [lang="zh-CN"] .lang-en { display: none; }
+
         /* 页眉与容器 */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
         }
 
         header {
             margin-bottom: 30px;
             text-align: left;
+            padding-right: 150px;
         }
 
         header h1 {
@@ -84,7 +116,7 @@
             border-bottom: 3px solid var(--primary-color);
         }
 
-        /* 轮播图样式 */
+        /* 轮播图 */
         .carousel-container {
             width: 100%;
             overflow: hidden;
@@ -92,24 +124,23 @@
             margin-bottom: 35px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             background: #f0f0f0;
-            height: 400px; /* 调整高度以适应您的科研展示图 */
+            height: 400px;
             position: relative;
         }
 
         .carousel-slide {
             display: flex;
-            width: 400%; /* 4张图，每张占 1/4 */
+            width: 400%;
             height: 100%;
             transition: transform 1s ease-in-out;
         }
 
         .carousel-slide img {
-            width: 25%; /* 对应 100% / 4 */
+            width: 25%;
             height: 100%;
-            object-fit: cover; /* 确保图片铺满容器而不变形 */
+            object-fit: cover;
         }
 
-        /* 主体内容排版 */
         .main-wrapper {
             display: grid;
             grid-template-columns: 3fr 1fr;
@@ -120,11 +151,10 @@
             .main-wrapper { grid-template-columns: 1fr; }
             .sidebar { order: -1; }
             .carousel-container { height: 250px; }
+            header { padding-right: 0; }
         }
 
-        .content-section {
-            margin-bottom: 45px;
-        }
+        .content-section { margin-bottom: 45px; }
 
         h2 {
             font-size: 1.5rem;
@@ -151,11 +181,8 @@
             font-size: 1.05rem;
         }
 
-        /* 侧边栏样式 */
-        .sidebar {
-            text-align: center;
-        }
-
+        /* 侧边栏 */
+        .sidebar { text-align: center; }
         .profile-img {
             width: 100%;
             max-width: 250px;
@@ -198,23 +225,39 @@
 </head>
 <body>
 
+    <div class="lang-switch">
+        <button id="langBtn" class="lang-btn" onclick="toggleLanguage()">中文 / 英文</button>
+    </div>
+
     <div class="container">
         <header>
-            <h1>感染与空间免疫大数据实验室</h1>
+            <h1>
+                <span class="lang-zh">感染与空间免疫大数据实验室</span>
+                <span class="lang-en">Infection and Spatial Immune Big Data Lab</span>
+            </h1>
             <p>X-Spatial for Pathogen Omics and Immunity Lab</p>
         </header>
 
         <nav class="nav">
-            <a href="index.html" class="active">首页</a>
-            <a href="research.html">研究方向</a>
-            <a href="achievements.html">科研成果</a>
-            <a href="team.html">团队成员</a>
-            <a href="contact.html">联系我们</a>
+            <a href="index.html" class="active">
+                <span class="lang-zh">首页</span><span class="lang-en">Home</span>
+            </a>
+            <a href="research.html">
+                <span class="lang-zh">研究方向</span><span class="lang-en">Research</span>
+            </a>
+            <a href="achievements.html">
+                <span class="lang-zh">科研成果</span><span class="lang-en">Publications</span>
+            </a>
+            <a href="team.html">
+                <span class="lang-zh">团队成员</span><span class="lang-en">Team</span>
+            </a>
+            <a href="contact.html">
+                <span class="lang-zh">联系我们</span><span class="lang-en">Contact</span>
+            </a>
         </nav>
 
         <div class="main-wrapper">
             <div class="main-content">
-                
                 <div class="carousel-container">
                     <div class="carousel-slide">
                         <img src="images/slide1.jpg" alt="Lab Activity 1" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+1'">
@@ -225,28 +268,37 @@
                 </div>
 
                 <section class="content-section">
-                    <h2>研究组简介</h2>
-                    <p><strong>付笑男</strong>，博士，研究员，博士生导师。2018年博士毕业于弗吉尼亚理工大学，2018年至2024年在华盛顿大学生化系从事博士后研究，2024年至2025年任华盛顿大学讲师，2025年6月起全职回国工作，现任<strong>中国科学院动物研究所研究员</strong>。</p>
-                    <p>我们的研究重点在于基于微米级生物芯片的<strong>空间组学技术</strong>（Spatial Omic Technologies）开发。通过充分利用亚细胞级空间位置信息，我们旨在复杂生物系统中探索细胞异质性、功能调控以及细胞间的相互作用，为理解生命过程提供更高维度的视角。</p>
-                    <p>近年来，相关研究成果已发表在 <em>Cell</em>、<em>Nature</em>、<em>Nature Aging</em>、<em>PNAS</em>、<em>PLOS Pathogens</em> 等国际学术期刊。</p>
+                    <h2>
+                        <span class="lang-zh">研究组简介</span>
+                        <span class="lang-en">About the Lab</span>
+                    </h2>
+                    <p class="lang-zh"><strong>付笑男</strong>，博士，研究员，博士生导师。2018年博士毕业于弗吉尼亚理工大学，2018年至2024年在华盛顿大学生化系从事博士后研究，2024年至2025年任华盛顿大学讲师，2025年6月起全职回国工作，现任<strong>中国科学院动物研究所研究员</strong>。</p>
+                    <p class="lang-en"><strong>Xiaonan Fu</strong>, Ph.D., Principal Investigator and Research Fellow. Dr. Fu received his Ph.D. from Virginia Tech in 2018. He conducted postdoctoral research at the University of Washington (2018–2024) and served as a Lecturer (2024-2025) before joining the <strong>Institute of Zoology, Chinese Academy of Sciences (CAS)</strong> in June 2025.</p>
+                    
+                    <p class="lang-zh">我们的研究重点在于基于微米级生物芯片的<strong>空间组学技术</strong>（Spatial Omic Technologies）开发。通过充分利用亚细胞级空间位置信息，我们旨在复杂生物系统中探索细胞异质性、功能调控以及细胞间的相互作用，为理解生命过程提供更高维度的视角。</p>
+                    <p class="lang-en">Our research focuses on the development of <strong>spatial omic technologies</strong> based on micron-resolution biochips. By leveraging subcellular spatial information, we aim to explore cellular heterogeneity, functional regulation, and intercellular interactions in complex biological systems.</p>
                 </section>
 
                 <section class="content-section">
-                    <h2>实验室使命</h2>
-                    <p>本课题组隶属于<strong>中国科学院动物研究所、动物多样性保护与有害动物防控全国重点实验室</strong>。</p>
-                    <p>实验室致力于将最前沿的生物技术应用于重要科学问题的解决。目前主要研究方向涵盖：空间组学技术开发、疫源动物生物学、抗体表位解析以及免疫调控机制研究。</p>
+                    <h2>
+                        <span class="lang-zh">实验室使命</span>
+                        <span class="lang-en">Our Mission</span>
+                    </h2>
+                    <p class="lang-zh">本课题组隶属于<strong>中国科学院动物研究所、动物多样性保护与有害动物防控全国重点实验室</strong>。</p>
+                    <p class="lang-en">The lab is part of the <strong>State Key Laboratory of Animal Diversity Conservation and Harmful Animal Control</strong> at the Institute of Zoology, CAS.</p>
                 </section>
             </div>
 
             <aside class="sidebar">
                 <img src="images/profile.jpg" alt="付笑男 博士" class="profile-img" onerror="this.src='https://via.placeholder.com/250x300?text=Photo+of+Dr.+Fu'">
-                
                 <div class="sidebar-info">
-                    <h3>联系信息</h3>
-                    <p><strong>职位：</strong>研究员 / PI</p>
-                    <p><strong>机构：</strong>中科院动物研究所</p>
-                    <p><strong>地址：</strong>北京市朝阳区北辰西路1号院5号</p>
-                    <p><strong>邮箱：</strong>xomicspatial at 163.com</p>
+                    <h3>
+                        <span class="lang-zh">联系信息</span><span class="lang-en">Contact Info</span>
+                    </h3>
+                    <p><strong><span class="lang-zh">职位：</span><span class="lang-en">Position:</span></strong> <span class="lang-zh">研究员 / PI</span><span class="lang-en">Research Fellow / PI</span></p>
+                    <p><strong><span class="lang-zh">机构：</span><span class="lang-en">Institution:</span></strong> <span class="lang-zh">中科院动物研究所</span><span class="lang-en">IOZ, CAS</span></p>
+                    <p><strong><span class="lang-zh">地址：</span><span class="lang-en">Address:</span></strong> <span class="lang-zh">北京市朝阳区北辰西路1号院5号</span><span class="lang-en">No. 1-5 Beichen West Rd, Beijing</span></p>
+                    <p><strong><span class="lang-zh">邮箱：</span><span class="lang-en">Email:</span></strong> xomicspatial at 163.com</p>
                 </div>
             </aside>
         </div>
@@ -257,6 +309,7 @@
     </div>
 
     <script>
+        // Carousel Logic
         const slide = document.querySelector('.carousel-slide');
         const images = document.querySelectorAll('.carousel-slide img');
         let counter = 0;
@@ -264,16 +317,27 @@
 
         function moveSlide() {
             counter++;
-            if (counter >= totalImages) {
-                counter = 0;
-            }
-            // 每张图占容器宽度的 100%，对应父级 flex 容器位移 -25% (因为 100/4)
+            if (counter >= totalImages) counter = 0;
             const offset = -counter * (100 / totalImages);
             slide.style.transform = `translateX(${offset}%)`;
         }
-
-        // 每 4 秒切换一次
         setInterval(moveSlide, 4000);
+
+        // Language Toggle Logic
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const btn = document.getElementById('langBtn');
+            
+            if (html.lang === 'zh-CN') {
+                html.lang = 'en';
+                document.title = "Dr. Xiaonan Fu - X-Spatial Lab";
+                btn.innerText = "Chinese / English";
+            } else {
+                html.lang = 'zh-CN';
+                document.title = "付笑男 研究员 - X-Spatial Lab";
+                btn.innerText = "中文 / 英文";
+            }
+        }
     </script>
 
 </body>
