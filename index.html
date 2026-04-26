@@ -116,12 +116,12 @@
             border-bottom: 3px solid var(--primary-color);
         }
 
-        /* 轮播图 */
+        /* 轮播图 - 全宽位于顶部 */
         .carousel-container {
             width: 100%;
             overflow: hidden;
             border-radius: 8px;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             background: #f0f0f0;
             height: 400px;
@@ -141,15 +141,16 @@
             object-fit: cover;
         }
 
+        /* 主体布局 - 水平并列 */
         .main-wrapper {
             display: grid;
-            grid-template-columns: 3fr 1fr;
+            grid-template-columns: 2.2fr 1fr;
             gap: 50px;
+            align-items: start;
         }
 
         @media (max-width: 850px) {
             .main-wrapper { grid-template-columns: 1fr; }
-            .sidebar { order: -1; }
             .carousel-container { height: 250px; }
             header { padding-right: 0; }
         }
@@ -181,11 +182,11 @@
             font-size: 1.05rem;
         }
 
-        /* 侧边栏 */
+        /* 侧边栏样式 */
         .sidebar { text-align: center; }
         .profile-img {
             width: 100%;
-            max-width: 250px;
+            max-width: 280px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 20px;
@@ -207,7 +208,7 @@
         }
 
         .sidebar-info p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 8px;
             line-height: 1.5;
             color: #555;
@@ -259,17 +260,17 @@
             </a>
         </nav>
 
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="images/slide1.jpg" alt="Lab Activity 1" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+1'">
+                <img src="images/slide2.jpg" alt="Research Data" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+2'">
+                <img src="images/slide3.jpg" alt="Microscopy" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+3'">
+                <img src="images/slide4.jpg" alt="Lab Team" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+4'">
+            </div>
+        </div>
+
         <div class="main-wrapper">
             <div class="main-content">
-                <div class="carousel-container">
-                    <div class="carousel-slide">
-                        <img src="images/slide1.jpg" alt="Lab Activity 1" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+1'">
-                        <img src="images/slide2.jpg" alt="Research Data" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+2'">
-                        <img src="images/slide3.jpg" alt="Microscopy" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+3'">
-                        <img src="images/slide4.jpg" alt="Lab Team" onerror="this.src='https://via.placeholder.com/800x400?text=Slide+4'">
-                    </div>
-                </div>
-
                 <section class="content-section">
                     <h2>
                         <span class="lang-zh">关于实验室</span>
@@ -277,13 +278,13 @@
                     </h2>
                     <p class="lang-zh">本课题组隶属于<strong>中国科学院动物研究所、动物多样性保护与有害动物防控全国重点实验室</strong>。</p>
                     <p class="lang-en">The lab is part of the <strong>State Key Laboratory of Animal Diversity Conservation and Harmful Animal Control</strong> at the Institute of Zoology, Chinese Academy of Sciences (CAS).</p>
-                
+
                     <p class="lang-zh">宿主-病原体互作过程中，细胞功能及其失调本质上源于复杂的分子互作网络，而这些过程不仅发生在单个细胞内，更深刻依赖于其所处的组织空间环境。要真正理解这些机制，必须在细胞内分子层面与组织空间尺度之间建立直接联系。</p>
                     <p class="lang-en">Cellular function and dysfunction in host–pathogen interactions emerge from complex molecular networks that operate not only within individual cells but also within the spatial context of tissues. A mechanistic understanding therefore requires linking intracellular molecular interactions with their organization across the tissue environment.</p>
-                
+
                     <p class="lang-zh">高分辨率空间组学技术的发展，使得在局部微环境中解析分子活动成为可能，为系统研究细胞状态转变与调控网络提供了全新的视角。我们利用高分辨率空间组学产生的大规模组学数据，结合深度学习方法，构建能够从高维复杂数据中提取关键生物学信息的计算框架。</p>
                     <p class="lang-en">Advances in high-resolution spatial technologies now make it possible to interrogate molecular activities within local microenvironments, offering new opportunities to study cellular states and regulatory networks in situ. Building on this, we integrate large-scale omics data with deep learning approaches to develop computational frameworks that extract meaningful biological insights from high-dimensional data.</p>
-                
+
                     <p class="lang-zh"><strong>Pixel-seq</strong> 微米级空间转录组技术，能够实现芯片与芯片、组织与芯片之间高精度的原位信息转印，在最大程度保留空间结构的同时实现高通量测量。实验室致力于开发新的空间组学方法，构建跨尺度、多模态的数据整合体系，用于系统解析宿主-病原体互作中的关键分子事件、细胞间通讯以及组织微环境的动态重塑。我们旨在融合高精度空间组学与人工智能方法，从分子到组织层面系统揭示复杂生物体系中的调控机制，并推动其在感染性疾病、免疫调控及精准医学中的应用。</p>
                     <p class="lang-en">A central focus is the development and application of <strong>Pixel-seq</strong>, a micron-resolution spatial transcriptomics technology that enables precise array-to-array transfer of local molecular information while preserving spatial context. This capability provides a foundation for cross-scale and multi-modal data integration to dissect key molecular events, cell–cell interactions, and microenvironmental remodeling during host–pathogen interactions, combining high-resolution spatial information with artificial intelligence to systematically uncover regulatory principles in complex biological systems and enable new advances in infectious disease research, immunology, and precision medicine.</p>
                 </section>
@@ -309,7 +310,6 @@
     </div>
 
     <script>
-        // Carousel Logic
         const slide = document.querySelector('.carousel-slide');
         const images = document.querySelectorAll('.carousel-slide img');
         let counter = 0;
@@ -323,7 +323,6 @@
         }
         setInterval(moveSlide, 4000);
 
-        // Language Toggle Logic
         function toggleLanguage() {
             const html = document.documentElement;
             const btn = document.getElementById('langBtn');
