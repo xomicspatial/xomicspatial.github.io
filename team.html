@@ -1,64 +1,257 @@
-```Plain Text
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>团队成员 - 付笑男研究员</title>
-<style>
-body{font-family: "Microsoft YaHei", sans-serif; line-height:1.7; margin:40px auto; max-width:960px; padding:0 20px; color:#333;}
-h1,h2,h3{color:#222; border-bottom:1px solid #eee; padding-bottom:6px;}
-table{width:100%; border-collapse:collapse; margin:20px 0;}
-td{padding:8px 12px; border:1px solid #eee; vertical-align:top;}
-a{color:#0066cc; text-decoration:none;}
-a:hover{text-decoration:underline;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队成员 - X-Spatial Lab</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --accent-color: #eef4fb;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #fcfcfc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Microsoft YaHei", serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Language Controls */
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1001; }
+        .lang-btn {
+            background: #fff; border: 1px solid var(--primary-color); color: var(--primary-color);
+            padding: 6px 15px; cursor: pointer; border-radius: 4px; font-size: 0.9rem;
+            transition: all 0.3s; font-weight: 500;
+        }
+        .lang-btn:hover { background: var(--primary-color); color: #fff; }
+        [lang="en"] .lang-zh { display: none; }
+        [lang="zh-CN"] .lang-en { display: none; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        header { margin-bottom: 30px; text-align: left; }
+        header h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 5px; }
+        header p { font-style: italic; color: var(--light-text); font-size: 1.1rem; }
+
+        /* Navigation */
+        .nav {
+            display: flex; background: #fff; margin-bottom: 40px;
+            border-top: 2px solid var(--primary-color); border-bottom: 1px solid #eee;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .nav a {
+            padding: 15px 25px; color: #444; text-decoration: none;
+            font-weight: 500; font-size: 0.95rem; transition: 0.3s;
+        }
+        .nav a:hover { background-color: var(--accent-color); color: var(--primary-color); }
+        .nav a.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); }
+
+        /* Team Grid Layout */
+        .team-section { margin-bottom: 60px; }
+        .section-title {
+            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 30px;
+            padding-bottom: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;
+        }
+        .section-title::before {
+            content: ""; width: 8px; height: 24px; background: var(--primary-color);
+            margin-right: 12px; border-radius: 2px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Member Card Style */
+        .member-card {
+            background: #fff; border-radius: 8px; border: 1px solid #eee;
+            overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; flex-direction: column;
+        }
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .member-photo {
+            width: 100%; height: 280px; background: #eee;
+            object-fit: cover; border-bottom: 1px solid #eee;
+        }
+        .member-info { padding: 20px; }
+        .member-name {
+            font-size: 1.3rem; font-weight: bold; color: var(--primary-color);
+            margin-bottom: 5px; display: block;
+        }
+        .member-title {
+            font-size: 0.95rem; color: var(--light-text);
+            margin-bottom: 15px; display: block; font-style: italic;
+        }
+        .member-bio { font-size: 0.9rem; line-height: 1.6; text-align: justify; }
+
+        /* Recruitment Banner */
+        .join-us {
+            background: var(--accent-color); padding: 30px;
+            border-radius: 8px; border-left: 5px solid var(--primary-color);
+            margin-top: 50px;
+        }
+
+        footer {
+            margin-top: 60px; padding: 20px 0; border-top: 1px solid #eee;
+            text-align: center; color: #999; font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
-<h1>付笑男 - 团队成员</h1>
-<h2>页面导航</h2>
-<ul>
-  <li><a href="index.html">首页</a></li>
-  <li><a href="research-direction.html">研究方向</a></li>
-  <li><a href="research-achievements.html">科研成果</a></li>
-  <li><a href="team-members.html">团队成员</a></li>
-  <li><a href="contact-us.html">联系我们</a></li>
-</ul>
 
-<h2>团队介绍</h2>
-<p>团队以空间组学、疫病组学研究为核心，由研究员、博士后、博士研究生、硕士研究生组成，形成了结构合理、分工明确的研究梯队，具体成员如下：</p>
+    <div class="lang-switch">
+        <button id="langBtn" class="lang-btn" onclick="toggleLanguage()">中文 / English</button>
+    </div>
 
-<table>
-  <tbody>
-    <tr>
-      <td width="200">姓名</td>
-      <td width="200">职称/学历</td>
-      <td width="200">研究方向</td>
-    </tr>
-    <tr>
-      <td>付笑男</td>
-      <td>研究员、博士生导师</td>
-      <td>空间组学技术开发、疫病组学与免疫调控</td>
-    </tr>
-    <tr>
-      <td>XXX</td>
-      <td>博士后</td>
-      <td>空间多组学技术应用</td>
-    </tr>
-    <tr>
-      <td>XXX</td>
-      <td>博士研究生</td>
-      <td>疫源动物宿主-病原体互作</td>
-    </tr>
-    <tr>
-      <td>XXX</td>
-      <td>硕士研究生</td>
-      <td>抗体表位解析与预测</td>
-    </tr>
-  </tbody>
-</table>
+    <div class="container">
+        <header>
+            <h1>
+                <span class="lang-zh">团队成员</span>
+                <span class="lang-en">Group Members</span>
+            </h1>
+            <p>X-Spatial for Pathogen Omics and Immunity Lab</p>
+        </header>
 
-<p>团队长期招收博士后、博士研究生、硕士研究生，欢迎对空间组学、疫病防控相关研究感兴趣的同学加入，共同开展科研工作。</p>
+        <nav class="nav">
+            <a href="index.html"><span class="lang-zh">首页</span><span class="lang-en">Home</span></a>
+            <a href="research.html"><span class="lang-zh">研究方向</span><span class="lang-en">Research</span></a>
+            <a href="achievements.html"><span class="lang-zh">科研成果</span><span class="lang-en">Publications</span></a>
+            <a href="resource.html"><span class="lang-zh">资源分享</span><span class="lang-en">Resources</span></a>
+            <a href="team.html" class="active"><span class="lang-zh">团队成员</span><span class="lang-en">Group members</span></a>
+            <a href="contact.html"><span class="lang-zh">联系我们</span><span class="lang-en">Positions available</span></a>
+        </nav>
+
+        <section class="team-section">
+            <h2 class="section-title">
+                <span class="lang-zh">实验室负责人 (PI)</span>
+                <span class="lang-en">Principal Investigator</span>
+            </h2>
+            <div class="team-grid" style="grid-template-columns: 1fr;">
+                <div class="member-card" style="flex-direction: row; align-items: stretch;">
+                    <img src="images/profile.jpg" alt="Xiaonan Fu" class="member-photo" style="width: 250px;" onerror="this.src='https://via.placeholder.com/250x300?text=Photo'">
+                    <div class="member-info">
+                        <span class="member-name">
+                            <span class="lang-zh">付笑男 博士</span>
+                            <span class="lang-en">Xiaonan Fu, Ph.D.</span>
+                        </span>
+                        <span class="member-title">
+                            <span class="lang-zh">研究员、博士生导师</span>
+                            <span class="lang-en">Principal Investigator / Professor</span>
+                        </span>
+                        <div class="member-bio">
+                            <p class="lang-zh">2018年毕业于弗吉尼亚理工大学。致力于高分辨率空间组学技术（如Pixel-seq）的开发与计算免疫学研究。曾任华盛顿大学讲师，现任中科院动物研究所研究员。</p>
+                            <p class="lang-en">Ph.D. from Virginia Tech (2018). Focuses on high-resolution spatial transcriptomics technology (Pixel-seq) and computational immunology. Previously a Lecturer at University of Washington.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2 class="section-title">
+                <span class="lang-zh">研究团队</span>
+                <span class="lang-en">Research Team</span>
+            </h2>
+            <div class="team-grid">
+                <div class="member-card">
+                    <img src="images/team/member1.jpg" class="member-photo" onerror="this.src='https://via.placeholder.com/300x280?text=Photo'">
+                    <div class="member-info">
+                        <span class="member-name">陈博</span>
+                        <span class="member-title">
+                            <span class="lang-zh">博士后</span>
+                            <span class="lang-en">Postdoctoral Fellow</span>
+                        </span>
+                        <div class="member-bio">
+                            <span class="lang-zh">空间多组学分析与应用。</span>
+                            <span class="lang-en">Focuses on the application of spatial multi-omics technologies.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="images/team/member2.jpg" class="member-photo" onerror="this.src='https://via.placeholder.com/300x280?text=Photo'">
+                    <div class="member-info">
+                        <span class="member-name">邓峻伟</span>
+                        <span class="member-title">
+                            <span class="lang-zh">实验技术员</span>
+                            <span class="lang-en">Lab Technician</span>
+                        </span>
+                        <div class="member-bio">
+                            <span class="lang-zh">空间多组学技术开发。</span>
+                            <span class="lang-en">Research focuses on spatial omics development.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="images/team/member3.jpg" class="member-photo" onerror="this.src='https://via.placeholder.com/300x280?text=Photo'">
+                    <div class="member-info">
+                        <span class="member-name">史丰收</span>
+                        <span class="member-title">
+                            <span class="lang-zh">实验室助理</span>
+                            <span class="lang-en">Lab Assistant</span>
+                        </span>
+                        <div class="member-bio">
+                            <span class="lang-zh">空间组学实验体系。</span>
+                            <span class="lang-en">Specializes in spatial omics assay.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                    <img src="images/team/member4.jpg" class="member-photo" onerror="this.src='https://via.placeholder.com/300x280?text=Photo'">
+                    <div class="member-info">
+                        <span class="member-name">王忠莲</span>
+                        <span class="member-title">
+                            <span class="lang-zh">硕士研究生</span>
+                            <span class="lang-en">Master Student</span>
+                        </span>
+                        <div class="member-bio">
+                            <span class="lang-zh">空间组学实验体系。</span>
+                            <span class="lang-en">Specializes in spatial omics assay.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="join-us">
+            <h3 class="lang-zh">加入我们</h3>
+            <h3 class="lang-en">Join Us</h3>
+            <p class="lang-zh">团队长期招收博士后、博士及硕士研究生。如果你对空间组学、疫病防控或人工智能算法感兴趣，请联系我们！</p>
+            <p class="lang-en">We are looking for motivated Postdocs, Ph.D. and Master's students. If you are interested in spatial omics, infectious diseases, or AI algorithms, please contact us.</p>
+        </div>
+
+        <footer>
+            &copy; 2026 Xiaonan Fu Lab @ IOZ, CAS. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const btn = document.getElementById('langBtn');
+            if (html.lang === 'zh-CN') {
+                html.lang = 'en';
+                document.title = "Team Members - X-Spatial Lab";
+                btn.innerText = "中文 / English";
+            } else {
+                html.lang = 'zh-CN';
+                document.title = "团队成员 - X-Spatial Lab";
+                btn.innerText = "中文 / English";
+            }
+        }
+    </script>
 </body>
 </html>
-    
-```
