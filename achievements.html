@@ -52,7 +52,7 @@
 
         .pub-section { margin-bottom: 60px; }
         .section-title {
-            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 20px;
+            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 30px;
             padding-bottom: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;
         }
         .section-title::before {
@@ -60,34 +60,35 @@
             margin-right: 12px; border-radius: 2px;
         }
 
-        .year-label {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin: 25px 0 15px 0;
-            display: block;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 10px;
-        }
-
         .pub-list { list-style: none; }
         .pub-item {
             background: #fff;
-            padding: 18px;
+            padding: 20px;
             border: 1px solid #eee;
             border-radius: 8px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             transition: 0.3s;
+            display: flex;
+            align-items: flex-start;
         }
         .pub-item:hover {
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-left: 4px solid var(--primary-color);
         }
 
-        .pub-authors { font-size: 0.92rem; color: #444; display: block; }
-        .pub-title { font-weight: bold; color: #222; display: block; margin: 4px 0; font-size: 1.05rem; }
-        .pub-journal { font-style: italic; color: var(--primary-color); font-size: 0.9rem; }
-        .pub-meta { color: var(--light-text); font-size: 0.85rem; margin-top: 4px; }
+        .pub-index {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: var(--light-text);
+            margin-right: 20px;
+            min-width: 25px;
+        }
+
+        .pub-content { flex: 1; }
+        .pub-authors { font-size: 0.95rem; color: #444; display: block; }
+        .pub-title { font-weight: bold; color: #222; display: block; margin: 5px 0; font-size: 1.1rem; }
+        .pub-journal { font-style: italic; color: var(--primary-color); font-size: 0.95rem; }
+        .pub-meta { color: var(--light-text); font-size: 0.85rem; margin-top: 5px; }
 
         footer {
             margin-top: 60px; padding: 20px 0; border-top: 1px solid #eee;
@@ -109,7 +110,7 @@
     <div class="container">
         <header>
             <h1>
-                <span class="lang-zh">已发文章</span>
+                <span class="lang-zh">科研成果</span>
                 <span class="lang-en">Publications</span>
             </h1>
             <p>X-Spatial for Pathogen Omics and Immunity Lab</p>
@@ -126,122 +127,181 @@
 
         <section class="pub-section">
             <h2 class="section-title">
-                <span class="lang-zh">全部论文</span>
-                <span class="lang-en">Full Publication List</span>
+                <span class="lang-zh">学术论文列表</span>
+                <span class="lang-en">Chronological Publication List</span>
             </h2>
-
-            <div class="year-label">2025</div>
             <ul class="pub-list">
+                
                 <li class="pub-item">
-                    <span class="pub-authors">AT Luskin*, L Li*, <strong>X Fu</strong>, K Barcomb, T Blackburn, EM Li, A Rana, R Simon, A Murry, SA Golden, GD Stuber, CP Ford, L Gu, and MR Bruchas.</span>
-                    <span class="pub-title">Heterogeneous pericoerulear neurons tune arousal and exploratory behaviours.</span>
-                    <span class="pub-journal">Nature</span>
-                    <div class="pub-meta">doi: 10.1038/s41586-025-08952-w</div>
+                    <span class="pub-index">1.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">Y Ye*, J Li*, W Li*, <strong>X Fu*</strong>, J Zhang, S Yang, W Du.</span>
+                        <span class="pub-title">Transcriptional Control of Male-specific Pathway in Temperature-dependent Sex Determination.</span>
+                        <span class="pub-journal">Science Bulletin</span>
+                        <div class="pub-meta">2025.</div>
+                    </div>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-authors">Y Ye*, J Li*, W Li*, <strong>X Fu*</strong>, J Zhang, S Yang, W Du.</span>
-                    <span class="pub-title">Transcriptional Control of Male-specific Pathway in Temperature-dependent Sex Determination.</span>
-                    <span class="pub-journal">Science Bulletin</span>
-                    <div class="pub-meta">Accepted</div>
-                </li>
-            </ul>
 
-            <div class="year-label">2023</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors">AU Gurkar, AA Gerencser, AL Mora, AC Nelson, AR Zhang, AB Lagnado, ..., <strong>X Fu</strong>, ZB Joseph, Z Ji, JF Passos.</span>
-                    <span class="pub-title">Spatial mapping of cellular senescence: emerging challenges and opportunities.</span>
-                    <span class="pub-journal">Nature Aging</span>
-                    <div class="pub-meta">3 (7), 776-790</div>
+                    <span class="pub-index">2.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">AT Luskin*, L Li*, <strong>X Fu</strong>, K Barcomb, T Blackburn, EM Li, A Rana, R Simon, A Murry, SA Golden, GD Stuber, CP Ford, L Gu, and MR Bruchas.</span>
+                        <span class="pub-title">A diverse network of pericoerulear neurons control arousal states.</span>
+                        <span class="pub-journal">Nature</span>
+                        <div class="pub-meta">2025. 643, 437–447.</div>
+                    </div>
                 </li>
-            </ul>
 
-            <div class="year-label">2022</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors"><strong>X Fu*</strong>, L Sun*, R Dong*, JY Chen, R Silakit, LF Condon, Y Lin, S Lin, RD Palmiter, L Gu.</span>
-                    <span class="pub-title">Polony gels enable amplifiable DNA stamping and spatial transcriptomics of chronic pain.</span>
-                    <span class="pub-journal">Cell</span>
-                    <div class="pub-meta">185 (24), 4621-4633. e17</div>
+                    <span class="pub-index">3.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">AU Gurkar, AA Gerencser, AL Mora, AC Nelson, AR Zhang, AB Lagnado, ..., <strong>X Fu</strong>, ZB Joseph, Z Ji, JF Passos.</span>
+                        <span class="pub-title">Spatial mapping of cellular senescence: emerging challenges and opportunities.</span>
+                        <span class="pub-journal">Nature Aging</span>
+                        <div class="pub-meta">2023. 3(7), 776-790.</div>
+                    </div>
                 </li>
-            </ul>
 
-            <div class="year-label">2021</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors">ML Simões, S Dong, R Entebi, ML Iyer, AMV Chen, <strong>X Fu</strong>, G Dimopoulos.</span>
-                    <span class="pub-title">The Anopheles gambiae microRNAs miR-306 and miR-999 effector system maximizes Plasmodium falciparum killing.</span>
-                    <span class="pub-journal">Scientific Reports</span>
-                    <div class="pub-meta">11 (1), 18055</div>
+                    <span class="pub-index">4.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors"><strong>X Fu</strong>, L Sun, R Dong, JY Chen, R Silakit, LF Condon, Y Lin, S Lin, RD Palmiter, L Gu.</span>
+                        <span class="pub-title">Polony gels enable amplifiable DNA stamping and spatial transcriptomics of chronic pain.</span>
+                        <span class="pub-journal">Cell</span>
+                        <div class="pub-meta">2022. 185(24), 4621-4633.</div>
+                    </div>
                 </li>
-            </ul>
 
-            <div class="year-label">2020</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors"><strong>X Fu</strong>, P Liu, G Dimopoulos, J Zhu.</span>
-                    <span class="pub-title">Dynamic miRNA-mRNA interactions coordinate gene expression in adult Anopheles gambiae.</span>
-                    <span class="pub-journal">PLoS Genetics</span>
-                    <div class="pub-meta">16 (4), e1008765</div>
+                    <span class="pub-index">5.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">X Xia*, <strong>X Fu*</strong>, B Wu, J Zhu, Z Zhao.</span>
+                        <span class="pub-title">Regulation of circadian rhythm and sleep by miR‐375‐timeless interaction in Drosophila.</span>
+                        <span class="pub-journal">FASEB Journal</span>
+                        <div class="pub-meta">2020. 34(12), 16536-16551.</div>
+                    </div>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-authors">S Dong, <strong>X Fu</strong>, Y Dong, ML Simões, J Zhu, G Dimopoulos.</span>
-                    <span class="pub-title">Broad spectrum immunomodulatory effects of Anopheles gambiae microRNAs and their use for transgenic suppression of Plasmodium.</span>
-                    <span class="pub-journal">PLoS Pathogens</span>
-                    <div class="pub-meta">16 (4), e1008453</div>
-                </li>
-            </ul>
 
-            <div class="year-label">2018</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors">P Liu*, <strong>X Fu*</strong>, J Zhu.</span>
-                    <span class="pub-title">Juvenile hormone-regulated alternative splicing of the taiman gene primes the ecdysteroid response in adult mosquitoes.</span>
-                    <span class="pub-journal">Proceedings of the National Academy of Sciences</span>
-                    <div class="pub-meta">115 (33), E7738-E7747</div>
+                    <span class="pub-index">6.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">Z Huang, Z Li, Z Zhang, S Kang, R Dong, L Sun, <strong>X Fu</strong>, D Vaisar, K Watanabe, L Gu.</span>
+                        <span class="pub-title">Creating Red Light-Switchable Protein Dimerization Systems as Genetically Encoded Actuators with High Specificity.</span>
+                        <span class="pub-journal">ACS Synthetic Biology</span>
+                        <div class="pub-meta">2020. 9(12), 3322-3333.</div>
+                    </div>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-authors">R Ojani, <strong>X Fu</strong>, T Ahmed, P Liu, J Zhu.</span>
-                    <span class="pub-title">Krüppel homologue 1 acts as a repressor and an activator in the transcriptional response to juvenile hormone in adult mosquitoes.</span>
-                    <span class="pub-journal">Insect Molecular Biology</span>
-                    <div class="pub-meta">27 (2), 268-278</div>
-                </li>
-            </ul>
 
-            <div class="year-label">2017</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors"><strong>X Fu</strong>, G Dimopoulos, J Zhu.</span>
-                    <span class="pub-title">Association of microRNAs with Argonaute proteins in the malaria mosquito Anopheles gambiae after blood ingestion.</span>
-                    <span class="pub-journal">Scientific Reports</span>
-                    <div class="pub-meta">7 (1), 6493</div>
+                    <span class="pub-index">7.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors"><strong>X Fu*</strong>, P Liu*, J Zhu.</span>
+                        <span class="pub-title">Dynamic miRNA-mRNA interactions coordinate gene expression in adult Anopheles gambiae.</span>
+                        <span class="pub-journal">PLoS Genetics</span>
+                        <div class="pub-meta">2020. 16(4), e1008765.</div>
+                    </div>
                 </li>
-            </ul>
 
-            <div class="year-label">2016</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors"><strong>X Fu</strong>, J Zhu.</span>
-                    <span class="pub-title">MicroRNA-based regulation of metabolic homeostasis in the malaria mosquito Anopheles gambiae.</span>
-                    <span class="pub-journal">MicroRNA</span>
-                    <div class="pub-meta">5 (2), 114-122</div>
+                    <span class="pub-index">8.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">S Dong, <strong>X Fu</strong>, Y Dong, ML Simões, J Zhu, G Dimopoulos.</span>
+                        <span class="pub-title">Broad spectrum immunomodulatory effects of Anopheles gambiae microRNAs and their use for transgenic suppression of Plasmodium.</span>
+                        <span class="pub-journal">PLOS Pathogens</span>
+                        <div class="pub-meta">2020. 16(4), e1008453.</div>
+                    </div>
                 </li>
-            </ul>
 
-            <div class="year-label">2011</div>
-            <ul class="pub-list">
                 <li class="pub-item">
-                    <span class="pub-authors"><strong>X Fu</strong>, Y Han, Y Wu, X Zhu, X Lu, F Mao, X Wang, X He, Y Zhao, Y Zhao.</span>
-                    <span class="pub-title">Prognostic role of microRNA-21 in various carcinomas: a systematic review and meta-analysis.</span>
-                    <span class="pub-journal">European Journal of Clinical Investigation</span>
-                    <div class="pub-meta">41 (11), 1245-1253</div>
+                    <span class="pub-index">9.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">P Liu*, <strong>X Fu*</strong>, J Zhu.</span>
+                        <span class="pub-title">Juvenile hormone-regulated alternative splicing of the taiman gene primes the ecdysteroid response in adult mosquitoes.</span>
+                        <span class="pub-journal">Proceedings of the National Academy of Sciences (PNAS)</span>
+                        <div class="pub-meta">2019. 115(33), E7738-E7747.</div>
+                    </div>
                 </li>
+
                 <li class="pub-item">
-                    <span class="pub-authors">Y Han, <strong>X Fu</strong>, X Zhu, F Mao, X Wang, Y Wu, Y Zhao, X He, Y Zhao.</span>
-                    <span class="pub-title">Prognostic value of microRNA-21 in patients with various carcinomas: a systematic review and meta-analysis.</span>
-                    <span class="pub-journal">Journal of Evidence-Based Medicine</span>
-                    <div class="pub-meta">4 (3), 200-200</div>
+                    <span class="pub-index">10.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">S Kang, K Davidsen, L Gomez-Castillo, H Jiang, <strong>X Fu</strong>, Z Li, Y Liang, M Jahn, M Moussa, F DiMaio, L Gu.</span>
+                        <span class="pub-title">COMBINES-CID: An Efficient Method for De Novo Engineering of Highly Specific Chemically Induced Protein Dimerization Systems.</span>
+                        <span class="pub-journal">Journal of the American Chemical Society (JACS)</span>
+                        <div class="pub-meta">2019. 141(28), 10948-10952.</div>
+                    </div>
                 </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">11.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">R Ojani, <strong>X Fu</strong>, T Ahmed, P Liu, J Zhu.</span>
+                        <span class="pub-title">Krüppel homologue 1 acts as a repressor and an activator in the transcriptional response to juvenile hormone in adult mosquitoes.</span>
+                        <span class="pub-journal">Insect Molecular Biology</span>
+                        <div class="pub-meta">2018. 27(2), 268-278.</div>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">12.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors"><strong>X Fu</strong>, G Dimopoulos, J Zhu.</span>
+                        <span class="pub-title">Association of microRNAs with Argonaute proteins in the malaria mosquito Anopheles gambiae after blood ingestion.</span>
+                        <span class="pub-journal">Scientific Reports</span>
+                        <div class="pub-meta">2017. 7(1), 6493.</div>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">13.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">R Ojani, P Liu, <strong>X Fu</strong>, J Zhu.</span>
+                        <span class="pub-title">Protein kinase C modulates transcriptional activation by the juvenile hormone receptor methoprene-tolerant.</span>
+                        <span class="pub-journal">Insect Biochemistry and Molecular Biology</span>
+                        <div class="pub-meta">2016. 70, 44-52.</div>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">14.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors"><strong>X Fu</strong>, Y Han, Y Wu, X Zhu, X Lu, F Mao, X Wang, X He, Y Zhao, Y Zhao.</span>
+                        <span class="pub-title">Prognostic role of microRNA-21 in various carcinomas: a systematic review and meta-analysis.</span>
+                        <span class="pub-journal">European Journal of Clinical Investigation</span>
+                        <div class="pub-meta">2011. 41(11), 1245-1253.</div>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">15.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">Y Wu, <strong>X Fu</strong>, X Zhu, X He, C Zou, Y Han, M Xu, C Huang, X Lu, Y Zhao.</span>
+                        <span class="pub-title">Prognostic role of systemic inflammatory response in renal cell carcinoma: a systematic review and meta-analysis.</span>
+                        <span class="pub-journal">Journal of Cancer Research and Clinical Oncology</span>
+                        <div class="pub-meta">2011. 137(5), 887-96.</div>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">16.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors">Y Zhao, X He, C Huang, <strong>X Fu</strong>, X Shi, Y Wu, Y Han, N Li, Y Wu, CK Heng.</span>
+                        <span class="pub-title">The impacts of thiazolidinediones on circulating C-reactive protein levels in different diseases: a meta-analysis.</span>
+                        <span class="pub-journal">Diabetes Research and Clinical Practice</span>
+                        <div class="pub-meta">2010. 90(3), 279-87.</div>
+                    </div>
+                </li>
+
+                <li class="pub-item">
+                    <span class="pub-index">17.</span>
+                    <div class="pub-content">
+                        <span class="pub-authors"><strong>X Fu</strong>, J Gu, C Chan, MC Lin, TY David, HF Kung, and L Lai.</span>
+                        <span class="pub-title">Possible Rules in microRNA Target Recognition.</span>
+                        <span class="pub-journal">International Journal of Integrative Biology</span>
+                        <div class="pub-meta">2007. 1(3), 165-171.</div>
+                    </div>
+                </li>
+
             </ul>
         </section>
 
@@ -258,7 +318,7 @@
                 document.title = "Publications - X-Spatial Lab";
             } else {
                 html.lang = 'zh-CN';
-                document.title = "科研成果 - X-Spatial Lab";
+                document.title = "已发文章 - X-Spatial Lab";
             }
         }
     </script>
