@@ -1,36 +1,243 @@
-```Plain Text
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>研究方向 - 付笑男研究员</title>
-<style>
-body{font-family: "Microsoft YaHei", sans-serif; line-height:1.7; margin:40px auto; max-width:960px; padding:0 20px; color:#333;}
-h1,h2,h3{color:#222; border-bottom:1px solid #eee; padding-bottom:6px;}
-a{color:#0066cc; text-decoration:none;}
-a:hover{text-decoration:underline;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究方向 - X-Spatial Lab</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --accent-color: #eef4fb;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #fcfcfc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Microsoft YaHei", serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Language Controls */
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1001; }
+        .lang-btn {
+            background: #fff; border: 1px solid var(--primary-color); color: var(--primary-color);
+            padding: 6px 15px; cursor: pointer; border-radius: 4px; font-size: 0.9rem;
+            transition: all 0.3s; font-weight: 500;
+        }
+        .lang-btn:hover { background: var(--primary-color); color: #fff; }
+        [lang="en"] .lang-zh { display: none; }
+        [lang="zh-CN"] .lang-en { display: none; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        header { margin-bottom: 30px; text-align: left; }
+        header h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 5px; }
+        header p { font-style: italic; color: var(--light-text); font-size: 1.1rem; }
+
+        /* Navigation */
+        .nav {
+            display: flex; background: #fff; margin-bottom: 40px;
+            border-top: 2px solid var(--primary-color); border-bottom: 1px solid #eee;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .nav a {
+            padding: 15px 25px; color: #444; text-decoration: none;
+            font-weight: 500; font-size: 0.95rem; transition: 0.3s;
+        }
+        .nav a:hover { background-color: var(--accent-color); color: var(--primary-color); }
+        .nav a.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); }
+
+        /* Research Sections */
+        .research-section { margin-bottom: 60px; }
+        .section-title {
+            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 30px;
+            padding-bottom: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;
+        }
+        .section-title::before {
+            content: ""; width: 8px; height: 24px; background: var(--primary-color);
+            margin-right: 12px; border-radius: 2px;
+        }
+
+        .research-card {
+            background: #fff;
+            padding: 0; /* Adjusted for image layout */
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            transition: 0.3s;
+            display: flex;
+            overflow: hidden;
+        }
+        .research-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-color: var(--primary-color);
+        }
+
+        .research-image {
+            flex: 0 0 350px; /* Fixed width for the image part */
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .research-card:hover .research-image img {
+            transform: scale(1.05);
+        }
+
+        .research-content {
+            padding: 30px;
+            flex: 1;
+        }
+
+        .research-num {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .research-heading {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .research-text {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        footer {
+            margin-top: 60px; padding: 20px 0; border-top: 1px solid #eee;
+            text-align: center; color: #999; font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .research-card { flex-direction: column; }
+            .research-image { flex: 0 0 250px; }
+        }
+        @media (max-width: 600px) {
+            .nav { flex-wrap: wrap; }
+            .nav a { padding: 10px 15px; flex: 1 1 50%; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-<h1>付笑男 - 研究方向</h1>
-<h2>页面导航</h2>
-<ul>
-  <li><a href="index.html">首页</a></li>
-  <li><a href="research-direction.html">研究方向</a></li>
-  <li><a href="research-achievements.html">科研成果</a></li>
-  <li><a href="team-members.html">团队成员</a></li>
-  <li><a href="contact-us.html">联系我们</a></li>
-</ul>
 
-<h2>主要研究方向</h2>
-<p>主要围绕空间组学技术开发与应用、疫病组学与免疫调控开展研究，具体方向如下：</p>
-<ol>
-  <li><strong>基于测序微米级芯片的空间组学技术开发</strong>：开发基于微米级测序芯片的通用检测平台，实现亚细胞分辨率下空间多组学（蛋白质、RNA修饰、DNA修饰）的同步分析，突破传统组学技术无法捕捉空间位置信息的局限。</li>
-  <li><strong>疫源动物生物学的空间组学研究</strong>：应用高分辨率空间组学技术，解析疫源动物（如蝙蝠、啮齿类）的病原体-宿主互作机制，精确定位病原体分布、靶细胞及免疫应答的空间特征，为疫病防控提供理论支撑。</li>
-  <li><strong>疫源动物抗体表位的高通量解析与预测</strong>：发展高通量抗体解析技术，整合BCR/TCR测序与AI模型，追溯疫源动物的病原暴露史，预测关键抗原表位，评估跨物种传播风险，助力新型疫苗研发。</li>
-</ol>
+    <div class="lang-switch">
+        <button id="langBtn" class="lang-btn" onclick="toggleLanguage()">中文 / English</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>
+                <span class="lang-zh">研究方向</span>
+                <span class="lang-en">Research Directions</span>
+            </h1>
+            <p>X-Spatial for Pathogen Omics and Immunity Lab</p>
+        </header>
+
+        <nav class="nav">
+            <a href="index.html"><span class="lang-zh">首页</span><span class="lang-en">Home</span></a>
+            <a href="research.html" class="active"><span class="lang-zh">研究方向</span><span class="lang-en">Research</span></a>
+            <a href="achievements.html"><span class="lang-zh">科研成果</span><span class="lang-en">Publications</span></a>
+            <a href="resource.html"><span class="lang-zh">资源分享</span><span class="lang-en">Resources</span></a>
+            <a href="team.html"><span class="lang-zh">团队成员</span><span class="lang-en">Group members</span></a>
+            <a href="contact.html"><span class="lang-zh">联系我们</span><span class="lang-en">Positions available</span></a>
+        </nav>
+
+        <section class="research-section">
+            <h2 class="section-title">
+                <span class="lang-zh">主要研究领域</span>
+                <span class="lang-en">Primary Research Areas</span>
+            </h2>
+
+            <div class="research-card">
+                <div class="research-image">
+                    <img src="images/research1.jpg" alt="Direction 1" onerror="this.src='https://via.placeholder.com/400x300?text=Spatial+Chip+Tech'">
+                </div>
+                <div class="research-content">
+                    <span class="research-num">Direction 01</span>
+                    <h3 class="research-heading">
+                        <span class="lang-zh">基于测序微米级芯片的空间组学技术开发</span>
+                        <span class="lang-en">Development of Spatial Omics via Micron-scale Sequencing Chips</span>
+                    </h3>
+                    <div class="research-text">
+                        <span class="lang-zh">开发基于微米级测序芯片的通用检测平台，实现亚细胞分辨率下空间多组学（蛋白质、RNA修饰、DNA修饰）的同步分析，突破传统组学技术无法捕捉空间位置信息的局限。</span>
+                        <span class="lang-en">Developing universal detection platforms based on micron-scale sequencing chips to enable simultaneous spatial multi-omics analysis (proteins, RNA modifications, DNA modifications) at subcellular resolution, breaking the limitations of traditional omics in capturing spatial information.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-card">
+                <div class="research-image">
+                    <img src="images/research2.jpg" alt="Direction 2" onerror="this.src='https://via.placeholder.com/400x300?text=Pathogen+Interaction'">
+                </div>
+                <div class="research-content">
+                    <span class="research-num">Direction 02</span>
+                    <h3 class="research-heading">
+                        <span class="lang-zh">疫源动物生物学的空间组学研究</span>
+                        <span class="lang-en">Spatial Omics in Reservoir Animal Biology</span>
+                    </h3>
+                    <div class="research-text">
+                        <span class="lang-zh">应用高分辨率空间组学技术，解析疫源动物（如蝙蝠、啮齿类）的病原体-宿主互作机制，精确定位病原体分布、靶细胞及免疫应答的空间特征，为疫病防控提供理论支撑。</span>
+                        <span class="lang-en">Applying high-resolution spatial omics to decode pathogen-host interaction mechanisms in reservoir animals (e.g., bats, rodents). We precisely map pathogen distribution, target cells, and spatial immune response characteristics to provide theoretical support for disease prevention and control.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-card">
+                <div class="research-image">
+                    <img src="images/research3.jpg" alt="Direction 3" onerror="this.src='https://via.placeholder.com/400x300?text=AI+Epitope+Prediction'">
+                </div>
+                <div class="research-content">
+                    <span class="research-num">Direction 03</span>
+                    <h3 class="research-heading">
+                        <span class="lang-zh">疫源动物抗体表位的高通量解析与预测</span>
+                        <span class="lang-en">High-throughput Analysis and Prediction of Antibody Epitopes</span>
+                    </h3>
+                    <div class="research-text">
+                        <span class="lang-zh">发展高通量抗体解析技术，整合BCR/TCR测序与AI模型，追溯疫源动物的病原暴露史，预测关键抗原表位，评估跨物种传播风险，助力新型疫苗研发。</span>
+                        <span class="lang-en">Developing high-throughput antibody analysis techniques by integrating BCR/TCR sequencing with AI models. This allows us to trace pathogen exposure history in reservoir animals, predict key antigenic epitopes, and assess cross-species transmission risks to aid in vaccine development.</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            &copy; 2026 Xiaonan Fu Lab @ IOZ, CAS. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            if (html.lang === 'zh-CN') {
+                html.lang = 'en';
+                document.title = "Research - X-Spatial Lab";
+            } else {
+                html.lang = 'zh-CN';
+                document.title = "研究方向 - X-Spatial Lab";
+            }
+        }
+    </script>
 </body>
 </html>
-    
-```
