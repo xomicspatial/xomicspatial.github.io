@@ -1,40 +1,266 @@
-```Plain Text
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>科研成果 - 付笑男研究员</title>
-<style>
-body{font-family: "Microsoft YaHei", sans-serif; line-height:1.7; margin:40px auto; max-width:960px; padding:0 20px; color:#333;}
-h1,h2,h3{color:#222; border-bottom:1px solid #eee; padding-bottom:6px;}
-a{color:#0066cc; text-decoration:none;}
-a:hover{text-decoration:underline;}
-em{font-style: italic;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科研成果 - X-Spatial Lab</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --accent-color: #eef4fb;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #fcfcfc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Microsoft YaHei", serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1001; }
+        .lang-btn {
+            background: #fff; border: 1px solid var(--primary-color); color: var(--primary-color);
+            padding: 6px 15px; cursor: pointer; border-radius: 4px; font-size: 0.9rem;
+            transition: all 0.3s; font-weight: 500;
+        }
+        .lang-btn:hover { background: var(--primary-color); color: #fff; }
+        [lang="en"] .lang-zh { display: none; }
+        [lang="zh-CN"] .lang-en { display: none; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        header { margin-bottom: 30px; text-align: left; }
+        header h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 5px; }
+        header p { font-style: italic; color: var(--light-text); font-size: 1.1rem; }
+
+        .nav {
+            display: flex; background: #fff; margin-bottom: 40px;
+            border-top: 2px solid var(--primary-color); border-bottom: 1px solid #eee;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .nav a {
+            padding: 15px 25px; color: #444; text-decoration: none;
+            font-weight: 500; font-size: 0.95rem; transition: 0.3s;
+        }
+        .nav a:hover { background-color: var(--accent-color); color: var(--primary-color); }
+        .nav a.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); }
+
+        .pub-section { margin-bottom: 60px; }
+        .section-title {
+            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 20px;
+            padding-bottom: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;
+        }
+        .section-title::before {
+            content: ""; width: 8px; height: 24px; background: var(--primary-color);
+            margin-right: 12px; border-radius: 2px;
+        }
+
+        .year-label {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 25px 0 15px 0;
+            display: block;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .pub-list { list-style: none; }
+        .pub-item {
+            background: #fff;
+            padding: 18px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+        .pub-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .pub-authors { font-size: 0.92rem; color: #444; display: block; }
+        .pub-title { font-weight: bold; color: #222; display: block; margin: 4px 0; font-size: 1.05rem; }
+        .pub-journal { font-style: italic; color: var(--primary-color); font-size: 0.9rem; }
+        .pub-meta { color: var(--light-text); font-size: 0.85rem; margin-top: 4px; }
+
+        footer {
+            margin-top: 60px; padding: 20px 0; border-top: 1px solid #eee;
+            text-align: center; color: #999; font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .nav { flex-wrap: wrap; }
+            .nav a { padding: 10px 15px; flex: 1 1 50%; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-<h1>付笑男 - 科研成果</h1>
-<h2>页面导航</h2>
-<ul>
-  <li><a href="index.html">首页</a></li>
-  <li><a href="research-direction.html">研究方向</a></li>
-  <li><a href="research-achievements.html">科研成果</a></li>
-  <li><a href="team-members.html">团队成员</a></li>
-  <li><a href="contact-us.html">联系我们</a></li>
-</ul>
 
-<h2>代表性论文（按发表时间排序）</h2>
-<ol>
-  <li>AT Luskin *, L Li *, X Fu, K Barcomb, T Blackburn, EM Li, A Rana, R Simon, A Murry, SA Golden, GD Stuber, CP Ford, L Gu, and MR Bruchas. Heterogeneous pericoerulear neurons tune arousal and exploratory behaviours. <em>Nature</em>, 2025 May 7. doi: 10.1038/s41586-025-08952-w.</li>
-  <li>Y Ye*, J Li*, W Li*, X Fu*, J Zhang, S Yang, W Du. Transcriptional Control of Male-specific Pathway in Temperature-dependent Sex Determination. <em>Science Bulletin</em>. (2025, accepted)</li>
-  <li>AU Gurkar, AA Gerencser, AL Mora, AC Nelson, AR Zhang, AB Lagnado,..., X Fu, ZB Joseph, Z Ji, JF Passos. Spatial mapping of cellular senescence: emerging challenges and opportunities. <em>Nature Aging</em>, 2023 Jul 3 (7), 776-790.</li>
-  <li>X Fu*, L Sun*, R Dong*, JY Chen, R Silakit, LF Condon, Y Lin, S Lin, RD Palmiter, L Gu. Polony gels enable amplifiable DNA stamping and spatial transcriptomics of chronic pain. <em>Cell</em>, 04 Nov 2022, :S0092-8674(22)01367-8.</li>
-  <li>P Liu*, X Fu*, J Zhu. Juvenile hormone-regulated alternative splicing of the taiman gene primes the ecdysteroid response in adult mosquitoes. <em>Proceedings of the National Academy of Sciences</em>, 115 (33), E7738-E7747.</li>
-</ol>
+    <div class="lang-switch">
+        <button id="langBtn" class="lang-btn" onclick="toggleLanguage()">中文 / English</button>
+    </div>
 
-<h3>研究成果说明</h3>
-<p>研究成果发表于<em>Cell</em>、<em>Nature</em>、<em>Nature Aging</em>、<em>PNAS</em>、<em>Plos Pathogen</em>等国际知名杂志，聚焦空间组学技术创新与疫源动物相关研究，为相关领域的技术突破和理论发展提供了重要支撑。</p>
+    <div class="container">
+        <header>
+            <h1>
+                <span class="lang-zh">科研成果</span>
+                <span class="lang-en">Research Achievements</span>
+            </h1>
+            <p>X-Spatial for Pathogen Omics and Immunity Lab</p>
+        </header>
+
+        <nav class="nav">
+            <a href="index.html"><span class="lang-zh">首页</span><span class="lang-en">Home</span></a>
+            <a href="research.html"><span class="lang-zh">研究方向</span><span class="lang-en">Research</span></a>
+            <a href="achievements.html" class="active"><span class="lang-zh">科研成果</span><span class="lang-en">Publications</span></a>
+            <a href="resource.html"><span class="lang-zh">资源分享</span><span class="lang-en">Resources</span></a>
+            <a href="team.html"><span class="lang-zh">团队成员</span><span class="lang-en">Group members</span></a>
+            <a href="contact.html"><span class="lang-zh">联系我们</span><span class="lang-en">Positions available</span></a>
+        </nav>
+
+        <section class="pub-section">
+            <h2 class="section-title">
+                <span class="lang-zh">全部论文</span>
+                <span class="lang-en">Full Publication List</span>
+            </h2>
+
+            <div class="year-label">2025</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors">AT Luskin*, L Li*, <strong>X Fu</strong>, K Barcomb, T Blackburn, EM Li, A Rana, R Simon, A Murry, SA Golden, GD Stuber, CP Ford, L Gu, and MR Bruchas.</span>
+                    <span class="pub-title">Heterogeneous pericoerulear neurons tune arousal and exploratory behaviours.</span>
+                    <span class="pub-journal">Nature</span>
+                    <div class="pub-meta">doi: 10.1038/s41586-025-08952-w</div>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-authors">Y Ye*, J Li*, W Li*, <strong>X Fu*</strong>, J Zhang, S Yang, W Du.</span>
+                    <span class="pub-title">Transcriptional Control of Male-specific Pathway in Temperature-dependent Sex Determination.</span>
+                    <span class="pub-journal">Science Bulletin</span>
+                    <div class="pub-meta">Accepted</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2023</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors">AU Gurkar, AA Gerencser, AL Mora, AC Nelson, AR Zhang, AB Lagnado, ..., <strong>X Fu</strong>, ZB Joseph, Z Ji, JF Passos.</span>
+                    <span class="pub-title">Spatial mapping of cellular senescence: emerging challenges and opportunities.</span>
+                    <span class="pub-journal">Nature Aging</span>
+                    <div class="pub-meta">3 (7), 776-790</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2022</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors"><strong>X Fu*</strong>, L Sun*, R Dong*, JY Chen, R Silakit, LF Condon, Y Lin, S Lin, RD Palmiter, L Gu.</span>
+                    <span class="pub-title">Polony gels enable amplifiable DNA stamping and spatial transcriptomics of chronic pain.</span>
+                    <span class="pub-journal">Cell</span>
+                    <div class="pub-meta">185 (24), 4621-4633. e17</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2021</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors">ML Simões, S Dong, R Entebi, ML Iyer, AMV Chen, <strong>X Fu</strong>, G Dimopoulos.</span>
+                    <span class="pub-title">The Anopheles gambiae microRNAs miR-306 and miR-999 effector system maximizes Plasmodium falciparum killing.</span>
+                    <span class="pub-journal">Scientific Reports</span>
+                    <div class="pub-meta">11 (1), 18055</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2020</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors"><strong>X Fu</strong>, P Liu, G Dimopoulos, J Zhu.</span>
+                    <span class="pub-title">Dynamic miRNA-mRNA interactions coordinate gene expression in adult Anopheles gambiae.</span>
+                    <span class="pub-journal">PLoS Genetics</span>
+                    <div class="pub-meta">16 (4), e1008765</div>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-authors">S Dong, <strong>X Fu</strong>, Y Dong, ML Simões, J Zhu, G Dimopoulos.</span>
+                    <span class="pub-title">Broad spectrum immunomodulatory effects of Anopheles gambiae microRNAs and their use for transgenic suppression of Plasmodium.</span>
+                    <span class="pub-journal">PLoS Pathogens</span>
+                    <div class="pub-meta">16 (4), e1008453</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2018</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors">P Liu*, <strong>X Fu*</strong>, J Zhu.</span>
+                    <span class="pub-title">Juvenile hormone-regulated alternative splicing of the taiman gene primes the ecdysteroid response in adult mosquitoes.</span>
+                    <span class="pub-journal">Proceedings of the National Academy of Sciences</span>
+                    <div class="pub-meta">115 (33), E7738-E7747</div>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-authors">R Ojani, <strong>X Fu</strong>, T Ahmed, P Liu, J Zhu.</span>
+                    <span class="pub-title">Krüppel homologue 1 acts as a repressor and an activator in the transcriptional response to juvenile hormone in adult mosquitoes.</span>
+                    <span class="pub-journal">Insect Molecular Biology</span>
+                    <div class="pub-meta">27 (2), 268-278</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2017</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors"><strong>X Fu</strong>, G Dimopoulos, J Zhu.</span>
+                    <span class="pub-title">Association of microRNAs with Argonaute proteins in the malaria mosquito Anopheles gambiae after blood ingestion.</span>
+                    <span class="pub-journal">Scientific Reports</span>
+                    <div class="pub-meta">7 (1), 6493</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2016</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors"><strong>X Fu</strong>, J Zhu.</span>
+                    <span class="pub-title">MicroRNA-based regulation of metabolic homeostasis in the malaria mosquito Anopheles gambiae.</span>
+                    <span class="pub-journal">MicroRNA</span>
+                    <div class="pub-meta">5 (2), 114-122</div>
+                </li>
+            </ul>
+
+            <div class="year-label">2011</div>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-authors"><strong>X Fu</strong>, Y Han, Y Wu, X Zhu, X Lu, F Mao, X Wang, X He, Y Zhao, Y Zhao.</span>
+                    <span class="pub-title">Prognostic role of microRNA-21 in various carcinomas: a systematic review and meta-analysis.</span>
+                    <span class="pub-journal">European Journal of Clinical Investigation</span>
+                    <div class="pub-meta">41 (11), 1245-1253</div>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-authors">Y Han, <strong>X Fu</strong>, X Zhu, F Mao, X Wang, Y Wu, Y Zhao, X He, Y Zhao.</span>
+                    <span class="pub-title">Prognostic value of microRNA-21 in patients with various carcinomas: a systematic review and meta-analysis.</span>
+                    <span class="pub-journal">Journal of Evidence-Based Medicine</span>
+                    <div class="pub-meta">4 (3), 200-200</div>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            &copy; 2026 Xiaonan Fu Lab @ IOZ, CAS. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            if (html.lang === 'zh-CN') {
+                html.lang = 'en';
+                document.title = "Publications - X-Spatial Lab";
+            } else {
+                html.lang = 'zh-CN';
+                document.title = "科研成果 - X-Spatial Lab";
+            }
+        }
+    </script>
 </body>
 </html>
-```
