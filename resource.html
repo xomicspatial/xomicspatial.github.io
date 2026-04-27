@@ -31,7 +31,9 @@
         }
         .lang-btn:hover { background: var(--primary-color); color: #fff; }
         [lang="en"] .lang-zh { display: none; }
+        [lang="en"] .lang-en { display: inline; }
         [lang="zh-CN"] .lang-en { display: none; }
+        [lang="zh-CN"] .lang-zh { display: inline; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
@@ -52,10 +54,10 @@
         .nav a:hover { background-color: var(--accent-color); color: var(--primary-color); }
         .nav a.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); }
 
-        /* Resource Section Layout */
+        /* Resource Content */
         .resource-section { margin-bottom: 60px; }
         .section-title {
-            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 30px;
+            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 25px;
             padding-bottom: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;
         }
         .section-title::before {
@@ -63,66 +65,56 @@
             margin-right: 12px; border-radius: 2px;
         }
 
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+        .resource-list { list-style: none; }
+        .resource-item {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .resource-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-color: var(--primary-color);
         }
 
-        /* Card Style (reusing member-card style for consistency) */
-        .resource-card {
-            background: #fff; border-radius: 8px; border: 1px solid #eee;
-            overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
-            display: flex; flex-direction: column; height: 100%;
-        }
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .icon-container {
-            position: relative;
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-            background: var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* SVG or Icon placeholder logic */
-        .resource-icon {
-            font-size: 4rem;
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: bold;
             color: var(--primary-color);
-            opacity: 0.7;
-            transition: transform 0.4s;
+            display: block;
+            margin-bottom: 10px;
         }
-        .resource-card:hover .resource-icon { transform: scale(1.1); opacity: 1; }
-
-        .resource-info { padding: 18px; flex-grow: 1; }
-        .resource-name {
-            font-size: 1.2rem; font-weight: bold; color: var(--primary-color);
-            margin-bottom: 8px; display: block;
+        .item-intro {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
         }
-        .resource-desc { font-size: 0.88rem; line-height: 1.5; text-align: justify; color: #555; }
         
-        .download-link {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid transparent;
+        .file-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-        .download-link:hover { border-bottom: 1px solid var(--primary-color); }
+        .btn-link {
+            text-decoration: none;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        .btn-link:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
 
-        /* Responsive adjustment */
-        @media (max-width: 900px) { .resource-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .resource-grid { grid-template-columns: 1fr; } }
-
-        .notice-box {
+        .footer-notice {
             background: var(--accent-color); padding: 30px;
             border-radius: 8px; border-left: 5px solid var(--primary-color);
             margin-top: 50px;
@@ -131,6 +123,11 @@
         footer {
             margin-top: 60px; padding: 20px 0; border-top: 1px solid #eee;
             text-align: center; color: #999; font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .nav { flex-wrap: wrap; }
+            .nav a { padding: 10px 15px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -160,75 +157,69 @@
 
         <section class="resource-section">
             <h2 class="section-title">
-                <span class="lang-zh">质粒资源</span>
-                <span class="lang-en">Plasmid</span>
+                <span class="lang-zh">质粒资源</span><span class="lang-en">Plasmids</span>
             </h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <div class="icon-container">
-                        <div class="resource-icon">🧬</div>
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <span class="item-name">pSpatial-Express V1.2</span>
+                    <div class="item-intro">
+                        <span class="lang-zh">高性能空间转录组表达载体，优化了病原体感染模型中的信号捕捉能力。</span>
+                        <span class="lang-en">High-performance spatial transcriptomics expression vector, optimized for signal capture in pathogen infection models.</span>
                     </div>
-                    <div class="resource-info">
-                        <span class="resource-name">pSpatial-Core V1.0</span>
-                        <div class="resource-desc">
-                            <span class="lang-zh">用于高通量空间转录组测序的核心表达质粒。</span>
-                            <span class="lang-en">Core expression plasmid for high-throughput spatial transcriptomics sequencing.</span>
-                        </div>
-                        <a href="#" class="download-link">Addgene #00000</a>
+                    <div class="file-links">
+                        <a href="#" class="btn-link">Map (PDF)</a>
+                        <a href="#" class="btn-link">Sequence (FASTA)</a>
+                        <a href="#" class="btn-link">Addgene #12345</a>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
 
         <section class="resource-section">
             <h2 class="section-title">
-                <span class="lang-zh">计算工具</span>
-                <span class="lang-en">Tools</span>
+                <span class="lang-zh">计算工具</span><span class="lang-en">Tools</span>
             </h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <div class="icon-container">
-                        <div class="resource-icon">💻</div>
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <span class="item-name">Spatial-Deconv Tool</span>
+                    <div class="item-intro">
+                        <span class="lang-zh">一套用于解析复杂组织中空间分辨率数据并整合病原体载量的开源软件。</span>
+                        <span class="lang-en">An open-source software suite for resolving spatial resolution data in complex tissues and integrating pathogen load.</span>
                     </div>
-                    <div class="resource-info">
-                        <span class="resource-name">Spatial-Scope</span>
-                        <div class="resource-desc">
-                            <span class="lang-zh">基于深度学习的空间单细胞分辨率解析工具。</span>
-                            <span class="lang-en">Deep learning-based tool for spatial single-cell resolution decomposition.</span>
-                        </div>
-                        <a href="https://github.com" class="download-link">GitHub Repo</a>
+                    <div class="file-links">
+                        <a href="https://github.com" class="btn-link">GitHub</a>
+                        <a href="#" class="btn-link">Documentation</a>
+                        <a href="#" class="btn-link">PyPI Package</a>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
 
         <section class="resource-section">
             <h2 class="section-title">
-                <span class="lang-zh">实验方案</span>
-                <span class="lang-en">Protocols</span>
+                <span class="lang-zh">实验方案</span><span class="lang-en">Protocols</span>
             </h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <div class="icon-container">
-                        <div class="resource-icon">📄</div>
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <span class="item-name">Pathogen-Spatial-Protocol (PSP)</span>
+                    <div class="item-intro">
+                        <span class="lang-zh">专门针对受病原体感染样本的高分辨率空间文库构建标准流程。</span>
+                        <span class="lang-en">Standard workflow for high-resolution spatial library construction specifically for samples infected with pathogens.</span>
                     </div>
-                    <div class="resource-info">
-                        <span class="resource-name">X-Spatial Seq v2.1</span>
-                        <div class="resource-desc">
-                            <span class="lang-zh">标准化空间组学文库构建手册（2026修订版）。</span>
-                            <span class="lang-en">Standardized spatial omics library construction manual (2026 Revised).</span>
-                        </div>
-                        <a href="#" class="download-link">Download PDF</a>
+                    <div class="file-links">
+                        <a href="#" class="btn-link">Download Protocol (PDF)</a>
+                        <a href="#" class="btn-link">Materials Checklist</a>
+                        <a href="#" class="btn-link">Video Guide</a>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
 
-        <div class="notice-box">
-            <h3 class="lang-zh">使用说明</h3>
-            <h3 class="lang-en">Usage Notes</h3>
-            <p class="lang-zh">以上资源仅供学术研究使用。如果您在研究中使用了我们的工具或协议，请引用相应的研究论文。</p>
-            <p class="lang-en">The above resources are for academic research only. If you use our tools or protocols in your research, please cite the corresponding papers.</p>
+        <div class="footer-notice">
+            <h3 class="lang-zh">共享政策</h3>
+            <h3 class="lang-en">Sharing Policy</h3>
+            <p class="lang-zh">本实验室提供的所有资源均受 Creative Commons 署名-非商业性使用许可。如有任何问题，请联系 PI。</p>
+            <p class="lang-en">All resources provided are under Creative Commons Attribution-NonCommercial license. Contact the PI for inquiries.</p>
         </div>
 
         <footer>
