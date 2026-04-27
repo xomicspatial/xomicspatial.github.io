@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源分享 - X-Spatial Lab</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --accent-color: #eef4fb;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #fcfcfc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Microsoft YaHei", serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Language Controls */
+        .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 1001; }
+        .lang-btn {
+            background: #fff; border: 1px solid var(--primary-color); color: var(--primary-color);
+            padding: 6px 15px; cursor: pointer; border-radius: 4px; font-size: 0.9rem;
+            transition: all 0.3s; font-weight: 500;
+        }
+        .lang-btn:hover { background: var(--primary-color); color: #fff; }
+        [lang="en"] .lang-zh { display: none; }
+        [lang="zh-CN"] .lang-en { display: none; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        header { margin-bottom: 30px; text-align: left; }
+        header h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 5px; }
+        header p { font-style: italic; color: var(--light-text); font-size: 1.1rem; }
+
+        /* Navigation */
+        .nav {
+            display: flex; background: #fff; margin-bottom: 40px;
+            border-top: 2px solid var(--primary-color); border-bottom: 1px solid #eee;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .nav a {
+            padding: 15px 25px; color: #444; text-decoration: none;
+            font-weight: 500; font-size: 0.95rem; transition: 0.3s;
+        }
+        .nav a:hover { background-color: var(--accent-color); color: var(--primary-color); }
+        .nav a.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); }
+
+        /* Resource Section Layout */
+        .resource-section { margin-bottom: 60px; }
+        .section-title {
+            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 30px;
+            padding-bottom: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;
+        }
+        .section-title::before {
+            content: ""; width: 8px; height: 24px; background: var(--primary-color);
+            margin-right: 12px; border-radius: 2px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* Card Style (reusing member-card style for consistency) */
+        .resource-card {
+            background: #fff; border-radius: 8px; border: 1px solid #eee;
+            overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .icon-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* SVG or Icon placeholder logic */
+        .resource-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.7;
+            transition: transform 0.4s;
+        }
+        .resource-card:hover .resource-icon { transform: scale(1.1); opacity: 1; }
+
+        .resource-info { padding: 18px; flex-grow: 1; }
+        .resource-name {
+            font-size: 1.2rem; font-weight: bold; color: var(--primary-color);
+            margin-bottom: 8px; display: block;
+        }
+        .resource-desc { font-size: 0.88rem; line-height: 1.5; text-align: justify; color: #555; }
+        
+        .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+        }
+        .download-link:hover { border-bottom: 1px solid var(--primary-color); }
+
+        /* Responsive adjustment */
+        @media (max-width: 900px) { .resource-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .resource-grid { grid-template-columns: 1fr; } }
+
+        .notice-box {
+            background: var(--accent-color); padding: 30px;
+            border-radius: 8px; border-left: 5px solid var(--primary-color);
+            margin-top: 50px;
+        }
+
+        footer {
+            margin-top: 60px; padding: 20px 0; border-top: 1px solid #eee;
+            text-align: center; color: #999; font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switch">
+        <button id="langBtn" class="lang-btn" onclick="toggleLanguage()">中文 / English</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>
+                <span class="lang-zh">资源分享</span>
+                <span class="lang-en">Resources</span>
+            </h1>
+            <p>X-Spatial for Pathogen Omics and Immunity Lab</p>
+        </header>
+
+        <nav class="nav">
+            <a href="index.html"><span class="lang-zh">首页</span><span class="lang-en">Home</span></a>
+            <a href="research.html"><span class="lang-zh">研究方向</span><span class="lang-en">Research</span></a>
+            <a href="achievements.html"><span class="lang-zh">科研成果</span><span class="lang-en">Publications</span></a>
+            <a href="resource.html" class="active"><span class="lang-zh">资源分享</span><span class="lang-en">Resources</span></a>
+            <a href="team.html"><span class="lang-zh">团队成员</span><span class="lang-en">Group members</span></a>
+            <a href="contact.html"><span class="lang-zh">联系我们</span><span class="lang-en">Positions available</span></a>
+        </nav>
+
+        <section class="resource-section">
+            <h2 class="section-title">
+                <span class="lang-zh">质粒资源</span>
+                <span class="lang-en">Plasmid</span>
+            </h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="icon-container">
+                        <div class="resource-icon">🧬</div>
+                    </div>
+                    <div class="resource-info">
+                        <span class="resource-name">pSpatial-Core V1.0</span>
+                        <div class="resource-desc">
+                            <span class="lang-zh">用于高通量空间转录组测序的核心表达质粒。</span>
+                            <span class="lang-en">Core expression plasmid for high-throughput spatial transcriptomics sequencing.</span>
+                        </div>
+                        <a href="#" class="download-link">Addgene #00000</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-section">
+            <h2 class="section-title">
+                <span class="lang-zh">计算工具</span>
+                <span class="lang-en">Tools</span>
+            </h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="icon-container">
+                        <div class="resource-icon">💻</div>
+                    </div>
+                    <div class="resource-info">
+                        <span class="resource-name">Spatial-Scope</span>
+                        <div class="resource-desc">
+                            <span class="lang-zh">基于深度学习的空间单细胞分辨率解析工具。</span>
+                            <span class="lang-en">Deep learning-based tool for spatial single-cell resolution decomposition.</span>
+                        </div>
+                        <a href="https://github.com" class="download-link">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-section">
+            <h2 class="section-title">
+                <span class="lang-zh">实验方案</span>
+                <span class="lang-en">Protocols</span>
+            </h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="icon-container">
+                        <div class="resource-icon">📄</div>
+                    </div>
+                    <div class="resource-info">
+                        <span class="resource-name">X-Spatial Seq v2.1</span>
+                        <div class="resource-desc">
+                            <span class="lang-zh">标准化空间组学文库构建手册（2026修订版）。</span>
+                            <span class="lang-en">Standardized spatial omics library construction manual (2026 Revised).</span>
+                        </div>
+                        <a href="#" class="download-link">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="notice-box">
+            <h3 class="lang-zh">使用说明</h3>
+            <h3 class="lang-en">Usage Notes</h3>
+            <p class="lang-zh">以上资源仅供学术研究使用。如果您在研究中使用了我们的工具或协议，请引用相应的研究论文。</p>
+            <p class="lang-en">The above resources are for academic research only. If you use our tools or protocols in your research, please cite the corresponding papers.</p>
+        </div>
+
+        <footer>
+            &copy; 2026 Xiaonan Fu Lab @ IOZ, CAS. All Rights Reserved.
+        </footer>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            if (html.lang === 'zh-CN') {
+                html.lang = 'en';
+                document.title = "Resources - X-Spatial Lab";
+            } else {
+                html.lang = 'zh-CN';
+                document.title = "资源分享 - X-Spatial Lab";
+            }
+        }
+    </script>
+</body>
+</html>
